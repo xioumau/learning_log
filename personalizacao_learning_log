@@ -1,0 +1,5 @@
+# O presente documento tem como objetivo registrar modificações necessárias para personalizar o projeto "Learning Log"
+
+1 - na página de registro de usuário, lançar erro quando o registro não for aprovado.
+
+2 - criar tópicos privados e públicos.
