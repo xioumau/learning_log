@@ -1,10 +1,22 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
+    <h1 style="text-align: center;">Create account</h1>
+    <form class="form-group" method="post" style="text-align: center; margin-top: 50px; list-style-type: none;" action="{% url 'users:register' %}">
 
-    <form method="post" action="{% url 'users:register' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        {{ form.username.label }}<br>
+        {{ form.username }}<br>
+        {% if username_error %}<label>{{ username_error|striptags }}</label>{% endif %}<br>
+
+        {{ form.password1.label }}<br>
+        {{ form.password1 }}<br>
+        {% if password_error %}<label>{{ password_error|striptags }}</label>{% endif %}<br>
+
+        {{ form.password2.label }}<br>
+        {{ form.password2 }}<br>
+        {% if password_confirmation_error %}<label>{{ password_confirmation_error|striptags }}</label>{% endif %}<br>
 
         <button name="submit">Register</button>
         <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
